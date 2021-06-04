@@ -14,7 +14,7 @@ public class CustomApplication extends Application {
     public void onCreate() {
         super.onCreate();
         networkComponent= DaggerNetworkComponent.builder()
-                .networksModule(new NetworksModule("https://jsonplaceholder.typicode.com/"))
+                .url("https://jsonplaceholder.typicode.com/")
                 .build();
     }
     public NetworkComponent getNetworkComponent(){

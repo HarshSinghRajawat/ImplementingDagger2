@@ -13,7 +13,12 @@ import dagger.Component;
 @Singleton
 @Component(modules = {NetworksModule.class})
 public interface NetworkComponent {
-
+        @Component.Builder
+        interface Builder{
+                @BindsInstance
+                Builder url(String url);
+                NetworkComponent build();
+        }
         public void inject(MainActivity activity);
 
 

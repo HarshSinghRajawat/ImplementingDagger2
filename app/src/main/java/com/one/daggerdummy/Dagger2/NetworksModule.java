@@ -13,11 +13,12 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
 
 @Module
 public class NetworksModule {
+    @Inject
     String url;
 
     @Inject
-    public NetworksModule(String url) {
-        this.url = url;
+    public NetworksModule() {
+
     }
 
     @Singleton
