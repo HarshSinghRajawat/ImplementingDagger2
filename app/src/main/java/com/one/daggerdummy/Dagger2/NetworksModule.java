@@ -1,8 +1,11 @@
 package com.one.daggerdummy.Dagger2;
 
+import android.util.Log;
+
 import com.squareup.moshi.Moshi;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -12,13 +15,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory;
 
 @Module
 public class NetworksModule {
-    @Inject
-    String url;
-
-    @Inject
-    public NetworksModule() {
-    }
-
     @Singleton
     @Provides
     public Moshi provideMoshi(){
@@ -27,7 +23,7 @@ public class NetworksModule {
 
     @Singleton
     @Provides
-    public Retrofit provideRetrofit(Moshi converter){
+    public Retrofit provideRetrofit(Moshi converter,@Named("url") String url){
         return new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(MoshiConverterFactory.create(converter))

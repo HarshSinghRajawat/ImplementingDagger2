@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.one.daggerdummy.Dagger2.DaggerNetworkComponent;
 import com.one.daggerdummy.Dagger2.NetworkComponent;
+import com.one.daggerdummy.Dagger2.NetworksModule;
 
 public class CustomApplication extends Application {
 
@@ -13,6 +14,7 @@ public class CustomApplication extends Application {
     public void onCreate() {
         super.onCreate();
         networkComponent= DaggerNetworkComponent.builder()
+                //.networksModule(new NetworksModule("https://jsonplaceholder.typicode.com/"))
                 .url("https://jsonplaceholder.typicode.com/")
                 .build();
     }
