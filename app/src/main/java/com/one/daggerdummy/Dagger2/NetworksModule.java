@@ -3,7 +3,6 @@ package com.one.daggerdummy.Dagger2;
 import com.squareup.moshi.Moshi;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -18,7 +17,6 @@ public class NetworksModule {
 
     @Inject
     public NetworksModule() {
-
     }
 
     @Singleton
@@ -30,10 +28,9 @@ public class NetworksModule {
     @Singleton
     @Provides
     public Retrofit provideRetrofit(Moshi converter){
-        Retrofit retrofit=new Retrofit.Builder()
+        return new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(MoshiConverterFactory.create(converter))
                 .build();
-        return retrofit;
     }
 }

@@ -2,7 +2,6 @@ package com.one.daggerdummy.Dagger2;
 
 import com.one.daggerdummy.MainActivity;
 
-import javax.inject.Named;
 import javax.inject.Singleton;
 
 import dagger.BindsInstance;
@@ -19,7 +18,7 @@ public interface NetworkComponent {
                 Builder url(String url);
                 NetworkComponent build();
         }
-        public void inject(MainActivity activity);
+        void inject(MainActivity activity);
 
 
 }
